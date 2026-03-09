@@ -74,6 +74,11 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 ## 기본 명령어
 
+명령어 링크 
+https://code.claude.com/docs/ko/interactive-mode
+
+custom 명령어
+
 | 명령어 | 설명 |
 |---|---|
 | `Ctrl + T` | 진행 상황 확인 (Todo List 확인 가능) |
@@ -93,6 +98,28 @@ curl -fsSL https://claude.ai/install.sh | bash
 | `/statusline` | 하단 상태 바 생성 |
 | `/output-style` | 출력 스타일 설정 |
 | `/bashes` | 백그라운드 작업 확인 가능 |
+
+custom 명령어 생성 (Agent skills와 통합됨)
+- 개인: ~/.claude/commands/ 폴더에 파일 생성
+- 팀: .claude/commands/ 폴더에 파일 생성 
+
+
+**custom 명령어에 동적 파라미터 전달 가능**
+  - `$ARGUMENTS` 로 받을 수 있음
+  - `$1 $2 $3` 로도 받을 수 있음
+
+**custom 명령어에 description 전달 가능**
+   - ```bash
+     ---
+     allowed-tools:
+     argument-hint:
+     description:
+     model: 
+     ---
+   ```
+
+커스텀 커맨드 - 자주 쓰는 프롬프트를 나만의 슬래시 커맨드로 만드는 기능  
+스킬 - 커스텀 커맨드가 더 강력해진 업그레이드 버전  
 
 ---
 
@@ -197,3 +224,6 @@ claude mcp add playwright npx @playwright/mcp@latest --scope project
 
 - 오류 1
 - 오류 2
+
+
+
