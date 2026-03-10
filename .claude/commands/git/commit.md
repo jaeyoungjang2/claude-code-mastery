@@ -81,4 +81,23 @@ https://code.claude.com/docs/ko/sub-agents
 
 서브에이전트 체이닝: 서브 에이전트 작업 후 다음 서브 에이전트로 작업을 넘길 수 있다.
 
+# hook
+
+https://code.claude.com/docs/ko/hooks
+https://code.claude.com/docs/ko/hooks-guide
+
+사용자 정의 셸 명령어
+도구를 사용하기 전, 후, 작업 완료 시점에 어떤 기능을 수행할 수 있도록 함
+
+예시
+- 알림 발송: claude code가 특정 권한을 요청해야 하는 경우 사용자에게 알림 발송
+- 자동 포맷팅: 모든 파일 편집 후 포맷팅을 진행
+- 로깅: 모든 활동을 로그로 남김
+- 피드백
+- 사용자 정의 권한: 민감한 디렉토리 또는 파일을 접근할 수 없도록 함
+
+`/hooks` 명령어를 통해서 사용 가능
+`Notification`, `Stop` 유형의 hook을 slacke webhook과 연결하면 권한 요청시, 작업 종료시 slack 알람을 확인할 수 있습니다.
+
+
 
