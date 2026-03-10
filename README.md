@@ -226,4 +226,102 @@ claude mcp add playwright npx @playwright/mcp@latest --scope project
 - 오류 2
 
 
+# sub agent
 
+https://code.claude.com/docs/ko/sub-agents
+자체 컨텍스트 관리
+
+1. /agents 명령어 실행
+2. create new agents
+3. 파일 위치
+    - 프로젝트 서브에이전트: .claude/agents
+    - 사용자 서브에이전트: ~/.claude/agents
+4. Generate with claude
+5. Describe: 어떤 에이전트를 사용할지
+6. Select tool
+7. Select model
+8. Select color
+
+서브에이전트 체이닝: 서브 에이전트 작업 후 다음 서브 에이전트로 작업을 넘길 수 있다.
+
+# hook
+
+https://code.claude.com/docs/ko/hooks
+https://code.claude.com/docs/ko/hooks-guide
+
+사용자 정의 셸 명령어
+도구를 사용하기 전, 후, 작업 완료 시점에 어떤 기능을 수행할 수 있도록 함
+
+예시
+- 알림 발송: claude code가 특정 권한을 요청해야 하는 경우 사용자에게 알림 발송
+- 자동 포맷팅: 모든 파일 편집 후 포맷팅을 진행
+- 로깅: 모든 활동을 로그로 남김
+- 피드백
+- 사용자 정의 권한: 민감한 디렉토리 또는 파일을 접근할 수 없도록 함
+
+`/hooks` 명령어를 통해서 사용 가능
+`Notification`, `Stop` 유형의 hook을 slacke webhook과 연결하면 권한 요청시, 작업 종료시 slack 알람을 확인할 수 있습니다.
+
+
+# mcp
+
+/mcp: 설치된 mcp서버를 확인할 수 있음
+
+context7:  
+playwright:  
+sequentialthinking: 복잡한 문제를 단계적으로 분석하고 추론하여 해결할 수 있도록 도와줌
+shadcnui: shadcn을 잘 사용할 수 있도록 도와줌
+
+
+### 클로드 코드 MCP Server 설치
+
+- [Context7](https://github.com/upstash/context7)
+
+    ```bash
+    claude mcp add --transport http context7 https://mcp.context7.com/mcp --scope project
+    ```
+
+- [Playwright](https://github.com/microsoft/playwright-mcp)
+
+    ```bash
+    claude mcp add playwright npx @playwright/mcp@latest --scope project
+    ```
+
+- [Sequential thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking)
+
+    ```bash
+    claude mcp add sequential-thinking --scope project -- npx -y @modelcontextprotocol/server-sequential-thinking
+    ```
+
+- [ShadcnUI MCP Server](https://ui.shadcn.com/docs/mcp)
+
+    ```bash
+    npx shadcn@latest mcp init --client claude
+    ```
+
+
+### `.mcp.json` 설정 파일
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"],
+      "env": {}
+    },
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": ["shadcn@latest", "mcp"]
+    }
+  }
+```
