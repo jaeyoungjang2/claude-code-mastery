@@ -352,4 +352,11 @@ https://platform.claude.com/docs/ko/build-with-claude/prompt-engineering/overvie
   - 빠르게 프로토 타입을 만들고 수정 작업을 진행
   - 유연하게 방향을 변경하면서 진행
   
-
+1. PRD 생성
+- prd-generator agent 사용, 필요 시 prd-validator agent를 사용해서 구현 가능 여부 확인 필요
+2. 로드맵 생성 
+- developer-planner agent 사용, prd를 분석하여 로드맵을 생성하는 agent
+3. 로드맵 검토 및 수정
+- 필요시 진행
+4. 작업 수행
+- taskmanager 사요 
