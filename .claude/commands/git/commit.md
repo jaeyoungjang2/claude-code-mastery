@@ -62,3 +62,23 @@ allowed-tools:
 - 스테이지된 파일이 있으면 해당 파일만 커밋
 - 분할 제안을 위한 diff 분석
 - **커밋에 Claude 서명 절대 추가하지 않음**
+
+# sub agent
+
+https://code.claude.com/docs/ko/sub-agents
+자체 컨텍스트 관리
+
+1. /agents 명령어 실행
+2. create new agents
+3. 파일 위치
+    - 프로젝트 서브에이전트: .claude/agents
+    - 사용자 서브에이전트: ~/.claude/agents
+4. Generate with claude
+5. Describe: 어떤 에이전트를 사용할지
+6. Select tool
+7. Select model
+8. Select color
+
+서브에이전트 체이닝: 서브 에이전트 작업 후 다음 서브 에이전트로 작업을 넘길 수 있다.
+
+
