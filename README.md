@@ -325,3 +325,31 @@ shadcnui: shadcn을 잘 사용할 수 있도록 도와줌
     }
   }
 ```
+
+권한 모두 허용
+`claude --dangerously-skip-permissions`
+
+MVP PRD문서를 작성하는 메타 프롬프트 생성
+
+메타 프롬프트(Meta-Prompt)
+- AI에게 최적의 프롬프트(질문/지시문)를 스스로 생성하거나 개선하도록 요청하는 '프롬프트를 만드는 프롬프트'입니다
+
+프롬프트 엔지니어링
+https://platform.claude.com/docs/ko/build-with-claude/prompt-engineering/overview
+
+큰 프로젝트를 만들 때는 작업 단위를 나눠서 진행을 해야지 AI가 잘 만들 수 있습니다.
+이러한 작업을 나눠서 처리하도록 도와주는 도구가 Claude Task Master와 Shrimp Task Manager 입니다.
+
+작업 관리 도구
+- [[작업 관리] Claude Task Master](https://github.com/eyaltoledano/claude-task-master)
+  - PRD를 기반으로 동작, PRD 및 요구사항이 명확한 경우
+  - 팀원들과 협업, 체계적으로 진행
+  - 중간에 도입 시에는 현재 프로젝트의 진행상황과 명확한 요구사항이 작성 된 PRD가 존재해야 한다.
+  - .taskmaster/tasks 폴더에서 관리
+
+
+- [[작업 관리] Shrimp Task Manager](https://github.com/cjo4m06/mcp-shrimp-task-manager)
+  - 빠르게 프로토 타입을 만들고 수정 작업을 진행
+  - 유연하게 방향을 변경하면서 진행
+  
+
